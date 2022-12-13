@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "videoplay-bitel-ga4-c5f61",
+  "private_key_id": "9c101bb63208b6cda87f94af55d1d5864615f4cc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCNT8K1g8U4t0Ux\nPSWW8gv60ekOGNfXcrednY0hrbwi4OquWWqY5TFj8sEBgk5NcTnHbt/2iUDD4rMK\nfLU46/l6C199/E9yDJv17s9TDH+zFIUtzRmtuyMULFupABsJUvxo3EDGIAFgNeWL\noVGkahLZPrCTN3G7igQqaARR99SNJDwobbIg9ly5QVniosPTKfzhF4Hm47G8spgn\nXgnpRiR0BeL8+1PUKA3EgcWLZNkli1R58pyT6uVmrDgXLkVNwAQa6uzCvh2pQicC\nA83aU1y6TMSbdfbGgZE6or7CssMhLqO9ozh0QueE7Cds9qECucaRr85KTdgJS2bE\nH08RlTJlAgMBAAECggEAJc6XK3UryPbPnlLbwbzUk7Chh9IBvXTFx3elkMMouLQw\nVaE6sdlwE2uZU8wHIxUN/ludtBoYp8/5Uu72lVodDxgH3m8o2jyhZXUVJwULDWCK\nGSzsl9yfkAAmLdsHYMFBItT6x4c8lv8UgP0SGMkAbfslxt1oomJUpvvZXAzQY0pO\ntujhEc3Rk53uuU9uZGZ2WlfzjfQzjXUWqznDObyhOMhkWqYucll5jYCPc4L9Y8rW\ngKwvc637w1dAtB0WSIT8Th8ZqOBZVoNpyrIsS/Hl1qelmHuLQOBbn+9AJSEd/jCo\nz88eOsXhT6shpgn8RniWnjVFFsPgHcAwWDnAZFkDqQKBgQDDNU3rgCKsR4eJVP2Y\nhG1PQOwXbWu3pRAz72EtTuGiV3NXwxEhbf5oYuDIF9n3keFDfsvF7jaS1vRi/J/0\n1iNwMejnOPp9uBLEl4IpyUNCVrnpSgQRuuh/EvE8ecfaiYgi+2SWQUZWoSH4rx+x\nIwkwa2Ozyaj6CT0AeGfD4RMrhwKBgQC5UZ9hyguAEUE9vqQmyLHVePLxnYjkI3r4\nFcIxB17jRRu19d67+9Dg0bLJ0u8N+q4XeH/AfHPTsgr+m1UxSXTaabtjl8821lbF\ndlVFXjUh4qlO5Df+gH4rhqPt+Gw//9P0EHk8/fx6JjbY54sKYY+ECKGc0szFcrjI\nWD4XFlLlswKBgFZK+w4PD8TOvgikjJJegB/X2EYm9cYx7q62tGOeCjqEpBV4wtrf\nT+Z/R1TMzmsVjtoSdCwkOPXCljgn6uIFw5a2SXnlgz4OICXNwBmOwe/SfM63DIN1\n948tJX0RbJqbz5V/QiD17A0hn+3aJI1eqpI/9swkalFVwiSyFVTO63WDAoGAN2z7\nH1M/h0kh2ya2j8b8sR0ghDUaqSkXcTWIxAMxVQXpWM21lUGmYmc1cvl8eBDemrR2\neQp/1fPtJ+MrYrdWlLCE1C+mUP9gKmTO8hVQDNduzeKiAKNLmRcG1nizX5zTNq7q\no9xO8/WT9+GgizVMqC+wrme5yOAb9ge2Yk9R8dMCgYEAiSoZ9rEeauTa0dKXGFQO\n2U1lN2xhBw4LR4+fpdwpQ5zud56locK6f+HrXy0lFy1PuKtPbOyzjSoRMVYoQdm0\no5fNwbuP1wkzysFnxXkL6IZXZ+ZXHjKERnWMXnTojjS/zhDhuhw0eEEme4DpUW48\nG5Ee1VHct1oA1vnMurgY/nI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-dggy3@videoplay-bitel-ga4-c5f61.iam.gserviceaccount.com",
+  "client_id": "100030194574548372390",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-dggy3%40videoplay-bitel-ga4-c5f61.iam.gserviceaccount.com"
+}

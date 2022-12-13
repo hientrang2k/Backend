@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/nimpe-api/Backend-api.iml" filepath="$PROJECT_DIR$/nimpe-api/Backend-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nimpe-app/Backend-app.iml" filepath="$PROJECT_DIR$/nimpe-app/Backend-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/doan.iml" filepath="$PROJECT_DIR$/doan.iml" />
+    </modules>
+  </component>
+</project>

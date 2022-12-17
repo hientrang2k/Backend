@@ -1,25 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <annotationProcessing>
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="Backend-app" />
-        <module name="Backend-api" />
-      </profile>
-    </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Backend-api" target="1.8" />
-      <module name="Backend-app" target="1.8" />
       <module name="doan" target="1.8" />
     </bytecodeTargetLevel>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Backend-api" options="-parameters" />
-      <module name="Backend-app" options="-parameters" />
-    </option>
   </component>
 </project>

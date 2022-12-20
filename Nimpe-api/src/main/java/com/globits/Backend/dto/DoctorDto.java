@@ -1,14 +1,15 @@
 package com.globits.Backend.dto;
 
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
+import java.util.UUID;
 
 import com.globits.Backend.domain.Doctor;
 import com.globits.core.dto.BaseObjectDto;
 import com.globits.security.dto.UserDto;
 
-public class DoctorDto extends BaseObjectDto{
+public class DoctorDto {
+	private UUID id;
 	private UserDto userDto;
+	private String subDescription;
 	private String description;
 	private String price;
 	private String imgUrl;
@@ -19,6 +20,7 @@ public class DoctorDto extends BaseObjectDto{
 	public DoctorDto(Doctor entity) {
 		if(entity!=null) {
 			this.id = entity.getId();
+			this.subDescription = entity.getSubDescription();
 			this.description = entity.getDescription();
 			this.price = entity.getPrice();
 			this.imgUrl = entity.getImgUrl();
@@ -28,6 +30,18 @@ public class DoctorDto extends BaseObjectDto{
 		}
 	}
 	
+	public UUID getId() {
+		return id;
+	}
+	public void setId(UUID id) {
+		this.id = id;
+	}
+	public String getSubDescription() {
+		return subDescription;
+	}
+	public void setSubDescription(String subDescription) {
+		this.subDescription = subDescription;
+	}
 	public UserDto getUserDto() {
 		return userDto;
 	}

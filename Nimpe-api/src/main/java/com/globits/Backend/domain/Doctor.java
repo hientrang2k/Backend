@@ -20,6 +20,9 @@ private static final long serialVersionUID = 1L;
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	@Column(name = "sub_description")
+	private String subDescription;
+	
 	@Column(name = "description")
 	private String description;
 	
@@ -28,6 +31,17 @@ private static final long serialVersionUID = 1L;
 	
 	@Column(name = "img_url")
 	private String imgUrl;
+
+	
+	
+	
+	public String getSubDescription() {
+		return subDescription;
+	}
+
+	public void setSubDescription(String subDescription) {
+		this.subDescription = subDescription;
+	}
 
 	public User getUser() {
 		return user;

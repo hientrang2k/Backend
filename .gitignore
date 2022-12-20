@@ -3,6 +3,6 @@ bin/
 .classpath
 .factorypath
 .project
-.settings
-.idea
+.settings/
+.idea/
 .iml

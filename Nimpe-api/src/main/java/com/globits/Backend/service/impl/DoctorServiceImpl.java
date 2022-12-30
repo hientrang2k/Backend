@@ -1,7 +1,9 @@
 package com.globits.Backend.service.impl;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Query;
@@ -20,8 +22,10 @@ import com.globits.Backend.dto.UserFeedbackDto;
 import com.globits.Backend.functiondto.SearchDto;
 import com.globits.Backend.repository.DoctorRepository;
 import com.globits.Backend.service.DoctorService;
+import com.globits.core.dto.PersonDto;
 import com.globits.core.service.impl.GenericServiceImpl;
 import com.globits.security.domain.User;
+import com.globits.security.dto.RoleDto;
 import com.globits.security.dto.UserDto;
 import com.globits.security.repository.UserRepository;
 import com.globits.security.service.UserService;
@@ -56,14 +60,13 @@ public class DoctorServiceImpl extends GenericServiceImpl<Doctor, UUID> implemen
 			entity.setDescription(dto.getSubDescription());
 			entity.setPrice(dto.getPrice());
 			entity.setImgUrl(dto.getImgUrl());
+			entity.setPosition(dto.getPosition());
 
 			User user = null;
-			if (dto.getUserDto() != null && dto.getUserDto().getId() != null) {
-				user = repos1.getOne(dto.getUserDto().getId());
+			if (dto.getUserDto() != null && dto.getUserDto().getIdUser() != null) {
+				user = repos1.getOne(dto.getUserDto().getIdUser());
 			}
-
 			entity.setUser(user);
-
 			entity = doctorRepository.save(entity);
 			if (entity != null) {
 				return new DoctorDto(entity);
@@ -98,10 +101,28 @@ public class DoctorServiceImpl extends GenericServiceImpl<Doctor, UUID> implemen
 	@Override
 	public DoctorDto createDoctor(DoctorDto dto) {
 		//thêm mới một tài khoản  
-		UserDto user = userService.save(dto.getUserDto());
+		UserDto user = new UserDto();
+		Set<RoleDto> role = new HashSet<>();
+		RoleDto roleDto = new RoleDto();
+		roleDto.setId(3L);
+		roleDto.setDescription("DOCTOR");
+		role.add(roleDto);
+		user.setRoles(role);
+		user.setActive(true);
+		user.setUsername(dto.getUserDto().getUsername());
+		user.setPassword(dto.getUserDto().getPassword());
+		PersonDto personDto = new PersonDto();
+		personDto.setPhoneNumber(dto.getUserDto().getPhoneNumber());
+		personDto.setGender(dto.getUserDto().getGender());
+		personDto.setDisplayName(dto.getUserDto().getDisplayName());
+		user.setPerson(personDto);
+		user.setDisplayName(dto.getUserDto().getDisplayName());
+		user.setEmail(dto.getUserDto().getEmail());
+		user.setConfirmPassword(dto.getUserDto().getPassword());
+		UserDto userCreate = userService.save(user);
 		// thêm mới thông tin bác sĩ
+		dto.getUserDto().setIdUser(userCreate.getId());
 		DoctorDto doctorDto = this.saveOrUpdate(dto, null);
-		doctorDto.setUserDto(user);
 		return doctorDto;
 	}
 

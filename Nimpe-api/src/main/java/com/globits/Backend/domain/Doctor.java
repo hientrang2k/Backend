@@ -31,10 +31,21 @@ private static final long serialVersionUID = 1L;
 	
 	@Column(name = "img_url")
 	private String imgUrl;
+	
+	@Column(name = "position")
+	private String position;
 
 	
 	
 	
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
 	public String getSubDescription() {
 		return subDescription;
 	}

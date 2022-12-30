@@ -14,7 +14,7 @@
 		<description>This system role  user</description>
 	</sys-role>
 	<sys-role>
-		<name>ROLE_SUPER_ADMIN</name>
+		<name>ROLE_DOCTOR</name>
 		<description>This system role super admin</description>
 	</sys-role>
 </sys-roles>

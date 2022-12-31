@@ -7,12 +7,8 @@ import com.globits.security.dto.UserDto;
 
 public class PatientDto {
 	private UUID id;
-	private String gender;
-	private String name;
-	private String email;
-	private String phoneNumber;
 	private String address;
-	private UserDto userDto;
+	private UserNewDto userDto;
 	
 	public PatientDto() {
 		super();
@@ -20,22 +16,28 @@ public class PatientDto {
 	public PatientDto(Patient entity) {
 		if(entity!=null) {
 			this.id = entity.getId();
-			this.gender = entity.getGender();
-			this.name = entity.getName();
-			this.email = entity.getEmail();
-			this.phoneNumber = entity.getPhoneNumber();
 			this.address = entity.getAddress();
 			if(entity.getUser()!=null) {
-				this.userDto = new UserDto(entity.getUser());
+				UserDto user = new UserDto(entity.getUser());
+				UserNewDto userNewDto = new UserNewDto();
+				userNewDto.setIdUser(user.getId());
+				userNewDto.setDisplayName(user.getDisplayName());
+				userNewDto.setEmail(user.getEmail());
+				userNewDto.setGender(user.getPerson().getGender());
+				userNewDto.setPhoneNumber(user.getPerson().getPhoneNumber());
+				userNewDto.setUsername(user.getUsername());
+				userNewDto.setRole(user.getRoles());
+				this.userDto = userNewDto;
 			}
 		}
 	}
 	
 	
-	public UserDto getUserDto() {
+
+	public UserNewDto getUserDto() {
 		return userDto;
 	}
-	public void setUserDto(UserDto userDto) {
+	public void setUserDto(UserNewDto userDto) {
 		this.userDto = userDto;
 	}
 	public UUID getId() {
@@ -44,30 +46,7 @@ public class PatientDto {
 	public void setId(UUID id) {
 		this.id = id;
 	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+	
 	public String getAddress() {
 		return address;
 	}

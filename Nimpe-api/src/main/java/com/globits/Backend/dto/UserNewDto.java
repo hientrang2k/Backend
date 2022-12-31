@@ -4,7 +4,7 @@ import java.util.Set;
 
 import com.globits.security.dto.RoleDto;
 
-public class DoctorUserDto {
+public class UserNewDto {
 	private Long idUser;
 	private String email;
 	private String displayName;

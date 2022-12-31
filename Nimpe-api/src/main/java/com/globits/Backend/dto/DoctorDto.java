@@ -8,7 +8,7 @@ import com.globits.security.dto.UserDto;
 
 public class DoctorDto {
 	private UUID id;
-	private DoctorUserDto userDto;
+	private UserNewDto userDto;
 	private String subDescription;
 	private String description;
 	private String price;
@@ -28,15 +28,15 @@ public class DoctorDto {
 			this.position = entity.getPosition();
 			if(entity.getUser()!=null) {
 				UserDto user = new UserDto(entity.getUser());
-				DoctorUserDto doctorUserDto = new DoctorUserDto();
-				doctorUserDto.setIdUser(user.getId());
-				doctorUserDto.setDisplayName(user.getDisplayName());
-				doctorUserDto.setEmail(user.getEmail());
-				doctorUserDto.setGender(user.getPerson().getGender());
-				doctorUserDto.setPhoneNumber(user.getPerson().getPhoneNumber());
-				doctorUserDto.setUsername(user.getUsername());
-				doctorUserDto.setRole(user.getRoles());
-				this.userDto = doctorUserDto;
+				UserNewDto userNewDto = new UserNewDto();
+				userNewDto.setIdUser(user.getId());
+				userNewDto.setDisplayName(user.getDisplayName());
+				userNewDto.setEmail(user.getEmail());
+				userNewDto.setGender(user.getPerson().getGender());
+				userNewDto.setPhoneNumber(user.getPerson().getPhoneNumber());
+				userNewDto.setUsername(user.getUsername());
+				userNewDto.setRole(user.getRoles());
+				this.userDto = userNewDto;
 			}
 		}
 	}
@@ -61,10 +61,10 @@ public class DoctorDto {
 		this.subDescription = subDescription;
 	}
 	
-	public DoctorUserDto getUserDto() {
+	public UserNewDto getUserDto() {
 		return userDto;
 	}
-	public void setUserDto(DoctorUserDto userDto) {
+	public void setUserDto(UserNewDto userDto) {
 		this.userDto = userDto;
 	}
 	public String getDescription() {

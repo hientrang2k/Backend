@@ -2,7 +2,7 @@ package com.globits.Backend.dto;
 
 import java.util.List;
 
-public class ListDoctorDto {
+public class ListDataDto {
 	private List<Object> data;
 	private int page;
 	private int size;

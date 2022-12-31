@@ -15,7 +15,7 @@ import org.springframework.util.StringUtils;
 
 import com.globits.Backend.domain.Doctor;
 import com.globits.Backend.dto.DoctorDto;
-import com.globits.Backend.dto.ListDoctorDto;
+import com.globits.Backend.dto.ListDataDto;
 import com.globits.Backend.functiondto.SearchDto;
 import com.globits.Backend.repository.DoctorRepository;
 import com.globits.Backend.service.DoctorService;
@@ -36,9 +36,6 @@ public class DoctorServiceImpl extends GenericServiceImpl<Doctor, UUID> implemen
 	@Autowired
 	UserService userService;
 	
-	
-
-
 	@Override
 	public DoctorDto saveOrUpdate(DoctorDto dto, UUID id) {
 		if (dto != null) {
@@ -52,13 +49,7 @@ public class DoctorServiceImpl extends GenericServiceImpl<Doctor, UUID> implemen
 			if (entity == null) {
 				entity = new Doctor();
 			}
-			
-			entity.setSubDescription(dto.getSubDescription());
-			entity.setDescription(dto.getSubDescription());
-			entity.setPrice(dto.getPrice());
-			entity.setImgUrl(dto.getImgUrl());
-			entity.setPosition(dto.getPosition());
-
+			toEntity(entity, dto);
 			User user = null;
 			if (dto.getUserDto() != null && dto.getUserDto().getIdUser() != null) {
 				user = repos1.getOne(dto.getUserDto().getIdUser());
@@ -72,6 +63,14 @@ public class DoctorServiceImpl extends GenericServiceImpl<Doctor, UUID> implemen
 		return null;
 	}
 
+	private void toEntity(Doctor entity,DoctorDto dto) {
+		entity.setSubDescription(dto.getSubDescription());
+		entity.setDescription(dto.getSubDescription());
+		entity.setPrice(dto.getPrice());
+		entity.setImgUrl(dto.getImgUrl());
+		entity.setPosition(dto.getPosition());
+	}
+	
 	@Override
 	public boolean deleteById(UUID id) {
 		if (id != null) {
@@ -101,25 +100,7 @@ public class DoctorServiceImpl extends GenericServiceImpl<Doctor, UUID> implemen
 	@Override
 	public DoctorDto createDoctor(DoctorDto dto) {
 		//thêm mới một tài khoản  
-		UserDto user = new UserDto();
-		Set<RoleDto> role = new HashSet<>();
-		RoleDto roleDto = new RoleDto();
-		roleDto.setId(3L);
-		roleDto.setDescription("DOCTOR");
-		role.add(roleDto);
-		user.setRoles(role);
-		user.setActive(true);
-		user.setUsername(dto.getUserDto().getUsername());
-		user.setPassword(dto.getUserDto().getPassword());
-		PersonDto personDto = new PersonDto();
-		personDto.setPhoneNumber(dto.getUserDto().getPhoneNumber());
-		personDto.setGender(dto.getUserDto().getGender());
-		personDto.setDisplayName(dto.getUserDto().getDisplayName());
-		user.setPerson(personDto);
-		user.setDisplayName(dto.getUserDto().getDisplayName());
-		user.setEmail(dto.getUserDto().getEmail());
-		user.setConfirmPassword(dto.getUserDto().getPassword());
-		UserDto userCreate = userService.save(user);
+		UserDto userCreate = createUpdateUser(dto);
 		// thêm mới thông tin bác sĩ
 		dto.getUserDto().setIdUser(userCreate.getId());
 		DoctorDto doctorDto = this.saveOrUpdate(dto, null);
@@ -129,8 +110,18 @@ public class DoctorServiceImpl extends GenericServiceImpl<Doctor, UUID> implemen
 	@Override
 	public DoctorDto updateDoctor(DoctorDto dto) {
 		//thêm mới một tài khoản  
+		UserDto userCreate = createUpdateUser(dto);
+		// thêm mới thông tin bác sĩ
+		dto.getUserDto().setIdUser(userCreate.getId());
+		DoctorDto doctorDto = this.saveOrUpdate(dto, dto.getId());
+		return doctorDto;
+	}
+
+	private UserDto createUpdateUser(DoctorDto dto) {
 		UserDto user = new UserDto();
-		user.setId(dto.getUserDto().getIdUser());
+		if(!StringUtils.isEmpty(dto.getUserDto().getIdUser())) {
+			user.setId(dto.getUserDto().getIdUser());
+		}
 		Set<RoleDto> role = new HashSet<>();
 		RoleDto roleDto = new RoleDto();
 		roleDto.setId(3L);
@@ -149,14 +140,12 @@ public class DoctorServiceImpl extends GenericServiceImpl<Doctor, UUID> implemen
 		user.setEmail(dto.getUserDto().getEmail());
 		user.setConfirmPassword(dto.getUserDto().getPassword());
 		UserDto userCreate = userService.save(user);
-		// thêm mới thông tin bác sĩ
-		dto.getUserDto().setIdUser(userCreate.getId());
-		DoctorDto doctorDto = this.saveOrUpdate(dto, dto.getId());
-		return doctorDto;
+		return userCreate;
 	}
-
+	
+	
 	@Override
-	public ListDoctorDto searchByDto(SearchDto dto) {
+	public ListDataDto searchByDto(SearchDto dto) {
 		if (dto == null) {
             return null;
         }
@@ -193,11 +182,11 @@ public class DoctorServiceImpl extends GenericServiceImpl<Doctor, UUID> implemen
         q.setMaxResults(pageSize);
         List<Object> entities = q.getResultList();
         long count = (long) qCount.getSingleResult();
-        ListDoctorDto listDoctorDto = new ListDoctorDto();
-        listDoctorDto.setData(entities);
-        listDoctorDto.setPage(pageIndex + 1);
-        listDoctorDto.setSize(pageSize);
-        listDoctorDto.setTotal(count);
-        return listDoctorDto;
+        ListDataDto listDataDto = new ListDataDto();
+        listDataDto.setData(entities);
+        listDataDto.setPage(pageIndex + 1);
+        listDataDto.setSize(pageSize);
+        listDataDto.setTotal(count);
+        return listDataDto;
 	}
 }

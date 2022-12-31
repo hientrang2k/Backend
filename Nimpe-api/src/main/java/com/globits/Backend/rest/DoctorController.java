@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.globits.Backend.dto.DoctorDto;
-import com.globits.Backend.dto.ListDoctorDto;
+import com.globits.Backend.dto.ListDataDto;
 import com.globits.Backend.dto.UserFeedbackDto;
 import com.globits.Backend.functiondto.SearchDto;
 import com.globits.Backend.functiondto.UserFeedbackSearchDto;
@@ -55,8 +55,8 @@ public class DoctorController {
     }
     
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-	public ResponseEntity<ListDoctorDto> searchByPage(@RequestBody SearchDto searchDto) {
-    	ListDoctorDto page = Service.searchByDto(searchDto);
-		return new ResponseEntity<ListDoctorDto>(page, HttpStatus.OK);
+	public ResponseEntity<ListDataDto> searchByPage(@RequestBody SearchDto searchDto) {
+    	ListDataDto page = Service.searchByDto(searchDto);
+		return new ResponseEntity<ListDataDto>(page, HttpStatus.OK);
 	}
 }

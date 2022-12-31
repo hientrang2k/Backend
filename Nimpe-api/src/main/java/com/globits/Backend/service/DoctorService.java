@@ -6,12 +6,12 @@ import org.springframework.data.domain.Page;
 
 import com.globits.Backend.domain.Doctor;
 import com.globits.Backend.dto.DoctorDto;
-import com.globits.Backend.dto.ListDoctorDto;
+import com.globits.Backend.dto.ListDataDto;
 import com.globits.Backend.functiondto.SearchDto;
 import com.globits.core.service.GenericService;
 
 public interface DoctorService extends GenericService<Doctor, UUID>{
-	ListDoctorDto searchByDto(SearchDto dto);
+	ListDataDto searchByDto(SearchDto dto);
 	public DoctorDto saveOrUpdate(DoctorDto dto, UUID id);
 	public DoctorDto createDoctor(DoctorDto dto);
 	public DoctorDto updateDoctor(DoctorDto dto);

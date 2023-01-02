@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1695b664-6ac1-45ae-95bd-5c551fce118b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Nimpe-api/src/main/java/com/globits/Backend/domain/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Nimpe-api/src/main/java/com/globits/Backend/domain/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nimpe-api/src/main/java/com/globits/Backend/dto/DoctorDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Nimpe-api/src/main/java/com/globits/Backend/dto/DoctorDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nimpe-app/src/main/resources/20210728_geo_coordinates (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nimpe-app/src/main/resources/dsVectorTemplate.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nimpe-app/src/main/resources/dsbenhnhanTemplate.xls" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +69,7 @@
       <workItem from="1671249614570" duration="452000" />
       <workItem from="1671250167508" duration="837000" />
       <workItem from="1671551657772" duration="389000" />
+      <workItem from="1672580392683" duration="3951000" />
     </task>
     <servers />
   </component>
